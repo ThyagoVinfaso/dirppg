@@ -8,9 +8,15 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      backgroundImage:{
+        "DIRPPG": "url(/assets/DIRPPG-BG.png)"
+      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        cinzento: "#D9D9D980",
+        cinzaquente: "#505050",
+        cinzabg: "#1E1E1E",
       },
     },
   },
