@@ -3,10 +3,10 @@ import { SetStateAction, useState } from 'react';
 
 
 export default function CardComponent() {
-  const [selectedCard, setSelectedCard] = useState(null);
+  const [selectedCard, setSelectedCard] = useState <number>();
 
   // Função para alterar o card selecionado
-  const handleCardClick = (index: number | SetStateAction<null>) => {
+  const handleCardClick = (index: number) => {
     setSelectedCard(index);
   };
 

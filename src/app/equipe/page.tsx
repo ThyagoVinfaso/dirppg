@@ -9,9 +9,7 @@ export default function Home() {
         <div className="bg-DIRPPG min-h-screen bg-center bg-cover">
           <Navbar></Navbar>
         </div>
-        <div>
-          
-          </div>
+       
       <Contatos></Contatos>
       <div><Footer></Footer></div>
    
