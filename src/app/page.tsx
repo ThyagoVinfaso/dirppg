@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <div className="bg-DIRPPG min-h-screen bg-center bg-cover relative">
-        <Navbar></Navbar>
+        <Navbar pagina={2}></Navbar>
         <Sobre></Sobre>
       </div>
       <div>

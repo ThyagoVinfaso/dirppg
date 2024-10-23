@@ -6,20 +6,20 @@ import React, { useRef, useEffect, useState } from 'react';
 import instagram from "../../../public/assets/instagram.png";
 import facebook from "../../../public/assets/facebook.png";
 
-
-export default function Navbar(){
+export default function Navbar({ pagina }: { pagina: number }) {
 
     const indicadorRef = useRef<HTMLDivElement>(null);
-    const navItems = useRef<React.RefObject<HTMLButtonElement>[]>([]);
-    const [selectedIndex, setSelectedIndex] = useState(0);
+    const navItems = Array(5).fill(null).map(() => useRef<HTMLButtonElement>(null));
+    const [selectedIndex, setSelectedIndex] = useState(pagina);
 
     useEffect(() => {
-        navItems.current = Array(5).fill(null).map(() => React.createRef());
-        moveIndicator(0);
-    }, []);
+        setTimeout(() => {
+            moveIndicator(pagina);
+        }, 150);
+    }, [pagina]);
 
     const moveIndicator = (index: number) => {
-        const button = navItems.current[index].current;
+        const button = navItems[index].current;
         const indicator = indicadorRef.current;
 
         if (button && indicator) {
@@ -35,23 +35,20 @@ export default function Navbar(){
     const handleClick = (index: number) => {
         setSelectedIndex(index); // Atualiza o índice do botão clicado
         moveIndicator(index);
+        setTimeout(() => {
 
-        if(index === 4){
-            document.location.href= '/pos'
-        }
-        else if(index === 3){
-            document.location.href='/equipe'
-        }
-        else if(index === 2){
-            document.location.href= '/'
-        }
-        else if(index === 1){
-            document.location.href= '/editais'
-        }
-        else if(index === 0){
-            document.location.href= '/eventos'
-        }
-
+            if (index === 4) {
+                document.location.href = '/pos';
+            } else if (index === 3) {
+                document.location.href = '/equipe';
+            } else if (index === 2) {
+                document.location.href = '/';
+            } else if (index === 1) {
+                document.location.href = '/editais';
+            } else if (index === 0) {
+                document.location.href = '/eventos';
+            }
+        }, 400);
     };
 
     return (
@@ -60,9 +57,8 @@ export default function Navbar(){
                 <p className='font-bold text-[5vh] ml-[6vw]'>DIRPPG-DV</p>
                 <div className="flex flex-row ">
                     <Image className="h-[6vh] w-[6vh] justify-end mr-[2vw]" alt="instagram" width={720} height={720} src={instagram} />
-                    <Image className="h-[6vh] w-[6vh] justify-end mr-[5vw]" alt="instagram" width={720} height={720} src={facebook} />
+                    <Image className="h-[6vh] w-[6vh] justify-end mr-[5vw]" alt="facebook" width={720} height={720} src={facebook} />
                 </div>
-
             </div>
 
             <div className="relative">
@@ -77,7 +73,7 @@ export default function Navbar(){
                     <li className='w-full flex justify-center'>
                         <button
                             onClick={() => handleClick(0)}
-                            ref={navItems.current[0]}
+                            ref={navItems[0]}
                             className={`text-center nav-item ${selectedIndex === 0 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Eventos
@@ -86,7 +82,7 @@ export default function Navbar(){
                     <li className='w-full flex justify-center'>
                         <button
                             onClick={() => handleClick(1)}
-                            ref={navItems.current[1]}
+                            ref={navItems[1]}
                             className={`text-center nav-item ${selectedIndex === 1 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Editais
@@ -95,7 +91,7 @@ export default function Navbar(){
                     <li className='w-full flex justify-center'>
                         <button
                             onClick={() => handleClick(2)}
-                            ref={navItems.current[2]}
+                            ref={navItems[2]}
                             className={`text-center nav-item ${selectedIndex === 2 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Home
@@ -104,7 +100,7 @@ export default function Navbar(){
                     <li className='w-full flex justify-center'>
                         <button
                             onClick={() => handleClick(3)}
-                            ref={navItems.current[3]}
+                            ref={navItems[3]}
                             className={`text-center nav-item ${selectedIndex === 3 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Equipe
@@ -113,7 +109,7 @@ export default function Navbar(){
                     <li className='w-full flex justify-center'>
                         <button
                             onClick={() => handleClick(4)}
-                            ref={navItems.current[4]}
+                            ref={navItems[4]}
                             className={`text-center nav-item ${selectedIndex === 4 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Pós graduação
