@@ -35,6 +35,23 @@ export default function Navbar(){
     const handleClick = (index: number) => {
         setSelectedIndex(index); // Atualiza o índice do botão clicado
         moveIndicator(index);
+
+        if(index === 4){
+            document.location.href= '/pos'
+        }
+        else if(index === 3){
+            document.location.href='/equipe'
+        }
+        else if(index === 2){
+            document.location.href= '/'
+        }
+        else if(index === 1){
+            document.location.href= '/editais'
+        }
+        else if(index === 0){
+            document.location.href= '/eventos'
+        }
+
     };
 
     return (
@@ -61,7 +78,7 @@ export default function Navbar(){
                         <button
                             onClick={() => handleClick(0)}
                             ref={navItems.current[0]}
-                            className={`text-center nav-item ${selectedIndex === 0 ? 'text-yellow-500' : 'text-white'}`}
+                            className={`text-center nav-item ${selectedIndex === 0 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Eventos
                         </button>
@@ -70,7 +87,7 @@ export default function Navbar(){
                         <button
                             onClick={() => handleClick(1)}
                             ref={navItems.current[1]}
-                            className={`text-center nav-item ${selectedIndex === 1 ? 'text-yellow-500' : 'text-white'}`}
+                            className={`text-center nav-item ${selectedIndex === 1 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Editais
                         </button>
@@ -79,7 +96,7 @@ export default function Navbar(){
                         <button
                             onClick={() => handleClick(2)}
                             ref={navItems.current[2]}
-                            className={`text-center nav-item ${selectedIndex === 2 ? 'text-yellow-500' : 'text-white'}`}
+                            className={`text-center nav-item ${selectedIndex === 2 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Home
                         </button>
@@ -88,16 +105,16 @@ export default function Navbar(){
                         <button
                             onClick={() => handleClick(3)}
                             ref={navItems.current[3]}
-                            className={`text-center nav-item ${selectedIndex === 3 ? 'text-yellow-500' : 'text-white'}`}
+                            className={`text-center nav-item ${selectedIndex === 3 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
-                            Tutoriais
+                            Equipe
                         </button>
                     </li>
                     <li className='w-full flex justify-center'>
                         <button
                             onClick={() => handleClick(4)}
                             ref={navItems.current[4]}
-                            className={`text-center nav-item ${selectedIndex === 4 ? 'text-yellow-500' : 'text-white'}`}
+                            className={`text-center nav-item ${selectedIndex === 4 ? 'text-yellow-500' : 'text-white'} text-[2vh]`}
                         >
                             Pós graduação
                         </button>

@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage:{
-        "DIRPPG": "url(/assets/DIRPPG-BG.png)"
+        "DIRPPG": "url(/assets/DIRPPG-BG.png)",
+        "BG2": "url(/assets/BG2.png)"
       },
       colors: {
         background: "var(--background)",
@@ -17,6 +18,8 @@ const config: Config = {
         cinzento: "#D9D9D980",
         cinzaquente: "#505050",
         cinzabg: "#1E1E1E",
+        cinzatexto: "#2D2B2B",
+        cinzafooter: "#0B0912",
       },
     },
   },

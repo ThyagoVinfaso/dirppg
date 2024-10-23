@@ -1,17 +1,11 @@
+'use'
 
+export default function Noticias(){
 
-interface div_props{
+    return(
 
-    altura?: string;
-
-}
-
-export default function Background(props:div_props) {
-
-    return (
-
-        <div className="flex w-screen h-[36vh] bg-cinzabg align-center justify-center relative">
-            <div className={`flex w-[80vw] bg-cinzatexto top-[-40px] absolute`} style={{height:props.altura}}>
+          <div className="flex w-screen h-full bg-cinzabg align-center justify-center relative">
+            <div className="flex w-[80vw] h-[44vh] bg-cinzatexto top-[-40px] absolute">
                 
                 <h1 className="mt-[8vh] text-[2.8vh] mx-[5vw] font-semibold">Faça sua <span className="text-yellow-500">pós</span> conosco
                 <div className="h[4px] w-[6vh] bg-white"></div>
@@ -19,8 +13,11 @@ export default function Background(props:div_props) {
                 </h1>
                 
             </div>
+            <div className=""></div>
         </div>
         
 
+        
     )
+
 }
